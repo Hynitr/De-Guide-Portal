@@ -55,12 +55,12 @@ $(document).ready(function () {
               $(toastr.error("Project score can`t be greater than 10"));
             } else {
               if (exc == null || exc == "") {
-                $(toastr.error("Kindly input Classwork score"));
+                $(toastr.error("Kindly input Continuous Assessment score"));
               } else {
-                if (exc > 10) {
+                if (exc > 40) {
                   $(
                     toastr.error(
-                      "Classwork score can`t be greater than 10"
+                      "Continuous Assessment score can`t be greater than 40"
                     )
                   );
                 } else {
@@ -161,12 +161,12 @@ $(document).ready(function () {
               $(toastr.error("Project score can`t be greater than 10"));
             } else {
               if (exc == null || exc == "") {
-                $(toastr.error("Kindly input Classwork score"));
+                $(toastr.error("Kindly input Continuous Assessment score"));
               } else {
-                if (exc > 10) {
+                if (exc > 40) {
                   $(
                     toastr.error(
-                      "Classwork score can`t be greater than 10"
+                      "Continuous Assessment score can`t be greater than 40"
                     )
                   );
                 } else {
@@ -242,6 +242,7 @@ $(document).ready(function () {
   $("#subdone").click(function () {
     var classr = $("#admis").val();
     var cls = $("#cla").val();
+    var ncls = $("#cls").val();
     var term = $("#term").val();
     var ses = $("#ses").val();
     var attd = $("#attd").val();
@@ -312,6 +313,7 @@ $(document).ready(function () {
                                   prin: prin,
                                   classr: classr,
                                   cls: cls,
+                                  ncls, ncls,
                                   term: term,
                                   mrkps: mrkps,
                                   mrkbt: mrkbt,

@@ -216,35 +216,62 @@ $pos  = mysqli_fetch_array($ress);
  } else {
     
  $perc    = ($mrkobt/$mrkpos) * 100;
-
- if ($perc <= 44) {
+ if ($perc <= 39) {
     
-    $grade  = "5th Class";
+    $grade  = "F9 - Fail";
    
      } else {
 
-  if ($perc <= 54) {
+  if ($perc <= 44) {
     
-  $grade  = "4th Class";
+  $grade  = "E8 - Pass";
   
+  } else {
+
+  if ($perc <= 49) {
+
+  $grade  = "D7 - Pass";
+ 
+  } else {
+
+  if ($perc <= 54) {
+  
+  $grade  = "C6 - Credit";
+  
+  } else {
+
+  if ($perc <= 59) {
+  
+  $grade  = "C5 - Credit";
+ 
   } else {
 
   if ($perc <= 64) {
 
-  $grade  = "3rd Class";
+  $grade  = "B3 - Good";
  
   } else {
 
-  if ($perc <= 74) {
+  if ($perc <= 69) {
   
-  $grade  = "2nd Class";
+  $grade  = "B2 - Very Good";
+ 
+  } else {
+
+  if ($perc <= 89) {
   
+  $grade  = "A1 - Excellent";
+ 
   } else {
 
   if ($perc <= 100) {
-  
-  $grade  = "1st Class";
+
+  $grade  = "A* - Distinction";
  
+  }
+  }
+  }
+  }
   }
   }
   }
@@ -280,12 +307,44 @@ $pos  = mysqli_fetch_array($ress);
                                     </div>
                                 </div>
 
+                                <?php
+                        if($term == '3rd Term') {
+
+                            echo'
+
+                            <label>Promoted to.:</label>
+                            <select name="cls" id="cls" class="custom-select">
+                                <option name="cls" id="cls">Reception</option>
+                                <option name="cls" id="cls">Transition</option>
+                                <option name="cls" id="cls">Kindergarten</option>
+                                <option name="cls" id="cls">Nursery 1</option>
+                                <option name="cls" id="cls">Nursery 2</option>
+                                <option name="cls" id="cls">Grade 1</option>
+                                <option name="cls" id="cls">Grade 2</option>
+                                <option name="cls" id="cls">Grade 3</option>
+                                <option name="cls" id="cls">Grade 4</option>
+                                <option name="cls" id="cls">Grade 5</option>
+                                <option name="cls" id="cls">Grade 6</option>
+                                <option name="cls" id="cls">J.S.S 1</option>
+                                <option name="cls" id="cls">J.S.S 2</option>
+                                <option name="cls" id="cls">J.S.S 3</option>
+                                <option name="cls" id="cls">S.S.S 1</option>
+                                <option name="cls" id="cls">S.S.S 2</option>
+                                <option name="cls" id="cls">S.S.S 3</option>
+                                </select>
+
+                                <br /><br />
+
+                                ';
+                                }
+                                ?>
 
 
 
 
                             </div>
                         </div>
+
 
 
                         <div class="form-group">

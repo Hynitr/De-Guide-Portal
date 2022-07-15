@@ -77,10 +77,7 @@ $rower = mysqli_fetch_array($res);
                         <thead>
                             <tr class="text-center">
                                 <th>Subject</th>
-                                <th>Classwork</th>
                                 <th>Continuous <br /> Assessment</th>
-                                <th>Mid-Term</th>
-                                <th>Project</th>
                                 <th>Exam</th>
                                 <th>Total</th>
                                 <th>Grade</th>
@@ -103,10 +100,7 @@ $rower = mysqli_fetch_array($res);
                             <td>'.$row['subject'].' 
                     <a style="color: red;" href="./edit?id='.$data.'&sbj='.$row['subject'].'&tm='.$term.'&cls='.$cls.'&ses='.$ses.'"><br/>Edit</a>
                                                 </td>
-                                                <td>'.$row['classex'].'</td>
-                                                <td>'.$row['test'].'</td>
-                                                <td>'.$row['mid'].'</td>
-                                                <td>'.$row['ass'].'</td>                                               
+                                                <td>'.$row['classex'].'</td>                                      
                                                 <td>'.$row['exam'].'</td>
                                                 <td>'.$row['total'].'</td>
                                                 <td>'.$row['grade'].'</td>
@@ -165,32 +159,32 @@ $rower = mysqli_fetch_array($res);
                             <div class="row">
 
                                 <!-- /.input group -->
-                                <div class="form-group col-md-2">
-                                    <label for="exampleInputEmail1">Classwork(10):</label>
-                                    <input type="number" name="year" id="exc" placeholder="Classwork(10)"
+                                <div class="form-group col-md-6">
+                                    <label for="exampleInputEmail1">Continuous Assessment(40):</label>
+                                    <input type="number" name="year" id="exc" placeholder="Continuous Assessment(40)"
                                         class="form-control">
                                 </div>
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-3" hidden>
                                     <label for="exampleInputEmail1">Continuous Assessment(10):</label>
-                                    <input type="number" name="date" id="test" placeholder="Continuous Assessment(10)"
-                                        class="form-control">
+                                    <input type="number" name="date" value="0" id="test"
+                                        placeholder="Continuous Assessment(10)" class="form-control">
                                 </div>
                                 <!-- /.input group -->
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-3" hidden>
                                     <label for="exampleInputEmail1">Mid-Term(10):</label>
-                                    <input type="number" name="year" id="mid" placeholder="Mid-Term(10)"
+                                    <input type="number" name="year" value="0" id="mid" placeholder="Mid-Term(10)"
                                         class="form-control">
                                 </div>
 
                                 <!-- /.input group -->
-                                <div class="form-group col-md-2">
+                                <div class="form-group col-md-2" hidden>
                                     <label for="exampleInputEmail1">Project(10):</label>
-                                    <input type="number" name="month" id="ass" placeholder="Project(10)"
+                                    <input type="number" name="month" value="0" id="ass" placeholder="Project(10)"
                                         class="form-control">
                                 </div>
                                 <!-- /.input group -->
-                                <div class="form-group col-md-2">
-                                    <label for="exampleInputEmail1"> Exam(60) .:</label>
+                                <div class="form-group col-md-6">
+                                    <label for="exampleInputEmail1"> Examination(60) .:</label>
                                     <input type="number" name="year" id="exam" placeholder="Exam(60)"
                                         class="form-control">
                                 </div>

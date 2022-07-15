@@ -78,33 +78,34 @@ $row  = mysqli_fetch_array($resu);
                         <div class="form-group">
                             <div class="row">
                                 <!-- /.input group -->
-                                <div class="for-group col-md-2">
-                                    <label for="exampleInputEmail1">Classwork(10):</label>
+                                <div class="for-group col-md-6">
+                                    <label for="exampleInputEmail1">Continuous Assessment(40):</label>
                                     <input type="number" name="year" id="exc" value="<?php echo $row['classex'] ?>"
-                                        placeholder="Classwork(10):" class="form-control">
+                                        placeholder="Continuous Assessment(40):" class="form-control">
                                 </div>
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-3" hidden>
                                     <label for="exampleInputEmail1">Continuous Assessment(10):</label>
                                     <input type="number" name="date" id="test" value="<?php echo $row['test'] ?>"
                                         placeholder="Continuous Assessment(10):" class="form-control">
                                 </div>
                                 <!-- /.input group -->
-                                <div class="for-group col-md-2">
+                                <div class="for-group col-md-2" hidden>
                                     <label for="exampleInputEmail1">Mid-Term(10):</label>
                                     <input type="number" name="year" id="mid" value="<?php echo $row['mid'] ?>"
                                         placeholder="Mid-Term(10):" class="form-control">
                                 </div>
                                 <!-- /.input group -->
-                                <div class="form-group col-md-2">
+                                <div class="form-group col-md-2" hidden>
                                     <label for="exampleInputEmail1">Project(10):</label>
                                     <input type="number" name="month" id="ass" value="<?php echo $row['ass'] ?>"
                                         placeholder="Project(10):" class="form-control">
                                 </div>
                                 <!-- /.input group -->
-                                <div class="form-group col-md-2">
-                                    <label for="exampleInputEmail1">Exam(60) .:</label>
+                                <div class="form-group col-md-6">
+                                    <label for="exampleInputEmail1">Examination(60) .:</label>
                                     <input type="number" name="year" id="exam" min="1" max="70"
-                                        value="<?php echo $row['exam'] ?>" placeholder="Exam(60)" class="form-control">
+                                        value="<?php echo $row['exam'] ?>" placeholder="Examination(60)"
+                                        class="form-control">
                                 </div>
 
 

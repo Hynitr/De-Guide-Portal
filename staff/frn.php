@@ -65,15 +65,17 @@ $ws = $row['staffclass'];
                                 <label>Select a Class.:</label>
                                 <select name="cls" id="cls" class="custom-select">
                                     <option name="cls" id="cls"><?php echo $ws ?></option>
+                                    <option name="cls" id="cls">Reception</option>
+                                    <option name="cls" id="cls">Transition</option>
+                                    <option name="cls" id="cls">Kindergarten</option>
                                     <option name="cls" id="cls">Nursery 1</option>
                                     <option name="cls" id="cls">Nursery 2</option>
-                                    <option name="cls" id="cls">KG 1</option>
-                                    <option name="cls" id="cls">KG 2</option>
-                                    <option name="cls" id="cls">Year 1</option>
-                                    <option name="cls" id="cls">Year 2</option>
-                                    <option name="cls" id="cls">Year 3</option>
-                                    <option name="cls" id="cls">Year 4</option>
-                                    <option name="cls" id="cls">Year 5</option>
+                                    <option name="cls" id="cls">Grade 1</option>
+                                    <option name="cls" id="cls">Grade 2</option>
+                                    <option name="cls" id="cls">Grade 3</option>
+                                    <option name="cls" id="cls">Grade 4</option>
+                                    <option name="cls" id="cls">Grade 5</option>
+                                    <option name="cls" id="cls">Grade 6</option>
                                     <option name="cls" id="cls">J.S.S 1</option>
                                     <option name="cls" id="cls">J.S.S 2</option>
                                     <option name="cls" id="cls">J.S.S 3</option>
@@ -134,109 +136,6 @@ while ($rw = mysqli_fetch_array($ww)) {
 <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-
-
-
-
-
-
-
-
-<!---modal basic school--->
-<div class="modal fade" id="modal-basic">
-    <div class="modal-dialog modal-xl">
-        <div class="modal-content bg-info">
-            <div class="modal-header">
-                <h4 class="modal-title">Upload result for <span id="stud" style="color: yellow;"> </span></h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-                <div class="card-body">
-                    <form name="uploadquestion" role="form">
-
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Select a Class .:</label>
-                            <select id="catclass" class="form-control">
-                                <option id="catclass">Basic one</option>
-                                <option id="catclass">Basic Two</option>
-                                <option id="catclass">Basic Three</option>
-                                <option id="catclass">Basic Four</option>
-                                <option id="catclass">Basic Five</option>
-                                <option id="catclass">Basic Six</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Create a subject .:</label>
-                            <input type="text" placeholder="e.g Mathematics, English, Basic Science e.t.c" id="subject"
-                                name="subject" class="form-control" required>
-                        </div>
-
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <label for="exampleInputPassword1">Time Allowed - Hours .:</label>
-                                <select id="hour" class="form-control">
-                                    <?php
-                        $x = 0;
-
-                        while($x <= 24) {
-                            echo '
-
-   
-                          <option style="font-size: 20px" id="hour">'.$x.' </option>
-                       
-
-                          <br>';
-                          $x++;
-                      }
-                      ?>
-
-                                </select>
-                            </div>
-
-                            <div class="form-group col-md-6">
-                                <label for="exampleInputPassword1">Time Allowed - Minutes .:</label>
-                                <select id="minutes" class="form-control">
-                                    <?php
-                        $x = 1;
-
-                        while($x <= 60) {
-                            echo '
-
-   
-                          <option style="font-size: 20px" id="minutes">'.$x.' </option>
-                       
-
-                          <br>';
-                          $x++;
-                      }
-                      ?>
-
-                                </select>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
-                <button type="button" id="next" class="btn btn-outline-light">Continue</button>
-            </div>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
-<!-- /.modal -->
-<!--- end of code for basic modal -->
-
-
-
-
-
-
-
 
 
 
