@@ -208,6 +208,7 @@ if (!isset($_GET['id'])) {
                                     <label>Staff Class.:</label>
                                     <select name="class" id="class" class="custom-select">
                                         <option name="class" id="class"><?php echo $row['staffclass'] ?></option>
+                                        <option name="class" id="class">Null</option>
                                         <option name="class" id="class">Reception</option>
                                         <option name="class" id="class">Transition</option>
                                         <option name="class" id="class">Kindergarten</option>
@@ -218,6 +219,7 @@ if (!isset($_GET['id'])) {
                                         <option name="class" id="class">Grade 3</option>
                                         <option name="class" id="class">Grade 4</option>
                                         <option name="class" id="class">Grade 5</option>
+                                        <option name="class" id="class">Grade 6</option>
                                         <option name="class" id="class">J.S.S 1</option>
                                         <option name="class" id="class">J.S.S 2</option>
                                         <option name="class" id="class">J.S.S 3</option>
