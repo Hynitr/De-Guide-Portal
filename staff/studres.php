@@ -23,15 +23,11 @@ $rower = mysqli_fetch_array($res);
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Upload Result for <?php echo $term ?></h1>
+                <div class="col-sm-12">
+                    <h1 class="m-0 text-dark">Upload Result for <?php echo $cls ?> - <?php echo $term ?>
+                        (<?php echo $ses ?> session)</h1>
                 </div><!-- /.col -->
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="./">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Upload Result</li>
-                    </ol>
-                </div><!-- /.col -->
+
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
@@ -40,9 +36,9 @@ $rower = mysqli_fetch_array($res);
     <?php
  $sql= "SELECT * FROM `result` WHERE `admno` = '$data' AND `term` = '$term' AND `ses` = '$ses'";
  $result_set = query($sql);
- while($row= mysqli_fetch_array($result_set))
- {
-  if(row_count($result_set) == "") {
+ $row = mysqli_fetch_array($result_set);
+ 
+    if(row_count($result_set) == null) {
             
           } else {
           ?>
@@ -53,7 +49,8 @@ $rower = mysqli_fetch_array($res);
         <div class="col-md-12">
             <div class="card card-dark">
                 <div class="card-header">
-                    <h3 class="card-title">Preview <?php echo $term ?> Result for
+                    <h3 class="card-title">Preview <?php echo $cls ?> - <?php echo $term ?> (<?php echo $ses ?> session)
+                        Result for
                         <?php echo $rower['SurName']." ".$rower['Middle Name']." ".$rower['Last Name'] ?></h3>
 
                     <div class="card-tools">
@@ -77,16 +74,13 @@ $rower = mysqli_fetch_array($res);
                 <!-- /.card-header -->
                 <div class="card-body table-responsive p-0">
                     <table class="table table-hover text-nowrap table-bordered table-striped">
-                        <?php
-                        if($cls == 'Transition' || $cls == 'Reception' || $cls == 'Kindergarten' || $cls == 'Nursery 1') {
-
-                            echo '
-
-                            <thead>
+                        <thead>
                             <tr class="text-center">
                                 <th>Subject</th>
-                                <th>CAT 1</th>
-                                <th>CAT 2</th>
+                                <th>Classwork</th>
+                                <th>Continuous <br /> Assessment</th>
+                                <th>Mid-Term</th>
+                                <th>Project</th>
                                 <th>Exam</th>
                                 <th>Total</th>
                                 <th>Grade</th>
@@ -94,29 +88,6 @@ $rower = mysqli_fetch_array($res);
 
                             </tr>
                         </thead>
-                            
-                            ';
-                        } else {
-
-                            echo '
-
-                            <thead>
-                            <tr class="text-center">
-                                <th>Subject</th>
-                                <th>CAT 1</th>
-                                <th>CAT 2</th>
-                                <th>CAT 3 </th>
-                                <th>Exam</th>
-                                <th>Total</th>
-                                <th>Grade</th>
-                                <th>Remark</th>
-
-                            </tr>
-                        </thead>
-                            
-                            ';
-                        }
-                        ?>
 
                         <tbody>
                             <?php
@@ -125,27 +96,6 @@ $rower = mysqli_fetch_array($res);
   while($row= mysqli_fetch_array($result_set))
  {
 
-    if($cls == 'Transition' || $cls == 'Reception' || $cls == 'Kindergarten' || $cls == 'Nursery 1') {
-
-        echo '
-
-        
-        <tr class="text-center">
-        <td>'.$row['subject'].' 
-<a style="color: red;" href="./edit?id='.$data.'&sbj='.$row['subject'].'&tm='.$term.'&cls='.$cls.'&ses='.$ses.'"><br/>Edit</a>
-                            </td>
-                            <td>'.$row['test'].'</td>
-                            <td>'.$row['ass'].'</td>
-                            <td>'.$row['exam'].'</td>
-                            <td>'.$row['total'].'</td>
-                            <td>'.$row['grade'].'</td>
-                            <td>'.$row['remark'].'</td>
-
-
-                            </tr>
-
-                            ';
-                            } else {
 
                             echo '
 
@@ -153,10 +103,10 @@ $rower = mysqli_fetch_array($res);
                             <td>'.$row['subject'].' 
                     <a style="color: red;" href="./edit?id='.$data.'&sbj='.$row['subject'].'&tm='.$term.'&cls='.$cls.'&ses='.$ses.'"><br/>Edit</a>
                                                 </td>
-                                                
-                                                <td>'.$row['test'].'</td>
-                                                <td>'.$row['ass'].'</td>
                                                 <td>'.$row['classex'].'</td>
+                                                <td>'.$row['test'].'</td>
+                                                <td>'.$row['mid'].'</td>
+                                                <td>'.$row['ass'].'</td>                                               
                                                 <td>'.$row['exam'].'</td>
                                                 <td>'.$row['total'].'</td>
                                                 <td>'.$row['grade'].'</td>
@@ -168,7 +118,6 @@ $rower = mysqli_fetch_array($res);
 
 
                             ';
-                            }
                             }
                             if(row_count($result_set) == 0) {
 
@@ -183,10 +132,8 @@ $rower = mysqli_fetch_array($res);
         </div>
     </section>
     <?php
-}
-}
-?>
-
+          }
+          ?>
 
 
     <!-- Main content -->
@@ -197,8 +144,8 @@ $rower = mysqli_fetch_array($res);
             <div class="card card-warning">
                 <div class="card-header">
                     <h3 class="card-title">Upload Result for <strong>
-                            <?php echo $rower['SurName']." ".$rower['Middle Name']." ".$rower['Last Name'] ?></strong> -
-                        <?php echo $term ?> (<?php echo $ses ?> session) </h3>
+                            <?php echo $rower['SurName']." ".$rower['Middle Name']." ".$rower['Last Name'] ?></strong>:
+                        <?php echo $cls ?> - <?php echo $term ?> (<?php echo $ses ?> session) </h3>
                     <div class="card-tools">
                         <button type="button" data-toggle="tooltip" title="Minimize" class="btn btn-tool"
                             data-card-widget="collapse"><i class="fas fa-minus"></i>
@@ -217,103 +164,38 @@ $rower = mysqli_fetch_array($res);
                         <div class="form-group">
                             <div class="row">
 
-                                <?php 
-
-                            if($cls == 'Transition' || $cls == 'Reception' || $cls == 'Kindergarten' || $cls == 'Nursery 1') {
-
-                                    echo '
-
-                                    <div class="form-group col-md-2">
-                                    <label for="exampleInputEmail1">CAT 1(10) .:</label>
-                                    <input type="number" name="date" id="test" placeholder="CAT 1(5)"
+                                <!-- /.input group -->
+                                <div class="form-group col-md-2">
+                                    <label for="exampleInputEmail1">Classwork(10):</label>
+                                    <input type="number" name="year" id="exc" placeholder="Classwork(10)"
+                                        class="form-control">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="exampleInputEmail1">Continuous Assessment(10):</label>
+                                    <input type="number" name="date" id="test" placeholder="Continuous Assessment(10)"
                                         class="form-control">
                                 </div>
                                 <!-- /.input group -->
                                 <div class="form-group col-md-3">
-                                    <label for="exampleInputEmail1">CAT 2(10).:</label>
-                                    <input type="number" name="month" id="ass" placeholder="CAT 2(5)"
+                                    <label for="exampleInputEmail1">Mid-Term(10):</label>
+                                    <input type="number" name="year" id="mid" placeholder="Mid-Term(10)"
                                         class="form-control">
                                 </div>
-
 
                                 <!-- /.input group -->
-                                <div class="form-group col-md-3" hidden>
-                                    <label for="exampleInputEmail1">CAT 3(10).:</label>
-                                    <input type="number" name="year" id="exc" value="0" placeholder="Exercise(10)"
-                                        class="form-control">
-                                </div>
-                                <!-- /.input group -->
-                                <div class="form-group col-md-3">
-                                    <label for="exampleInputEmail1">Exam(80) .:</label>
-                                    <input type="number" name="year" id="exam" placeholder="Exam(90)"
-                                        class="form-control">
-                                </div>
-
-                                    ';
-
-                                } else {
-
-
-                                    echo '
-                                    
-                                    <div class="form-group col-md-2">
-                                    <label for="exampleInputEmail1">CAT 1(10) .:</label>
-                                    <input type="number" name="date" id="test" placeholder="CAT 1(10)"
-                                        class="form-control">
-                                </div>
-                                <!-- /.input group -->
-                                <div class="form-group col-md-3">
-                                    <label for="exampleInputEmail1">CAT 2(10).:</label>
-                                    <input type="number" name="month" id="ass" placeholder="CAT 2(10)"
-                                        class="form-control">
-                                </div>
-
-
-                                <!-- /.input group -->
-                                <div class="form-group col-md-3">
-                                    <label for="exampleInputEmail1">CAT 3(10).:</label>
-                                    <input type="number" name="year" id="exc" placeholder="CAT 3(10)"
+                                <div class="form-group col-md-2">
+                                    <label for="exampleInputEmail1">Project(10):</label>
+                                    <input type="number" name="month" id="ass" placeholder="Project(10)"
                                         class="form-control">
                                 </div>
                                 <!-- /.input group -->
                                 <div class="form-group col-md-2">
-                                    <label for="exampleInputEmail1">Exam(70) .:</label>
-                                    <input type="number" name="year" id="exam" placeholder="Exam(70)"
+                                    <label for="exampleInputEmail1"> Exam(60) .:</label>
+                                    <input type="number" name="year" id="exam" placeholder="Exam(60)"
                                         class="form-control">
                                 </div>
-                                    
-                                    ';
-                                }
-
-
-                                ?>
-
                                 <!-- /.input group -->
-                                <div class="form-group col-md-2" hidden>
-                                    <label for="exampleInputEmail1">Position in Class .:</label>
-                                    <input type="text" name="year" value='0' id="position"
-                                        placeholder="1st, 2nd, 3rd e.t.c" class="form-control">
-                                    <!--<select id="position" class="form-control">
-                                        <option id="position">1st</option>
-                                        <option id="position">2nd</option>
-                                        <option id="position">3rd</option>
-                                        <?php
-                        $x = 4;
 
-                        while($x <= $hrt) {
-                            echo '
-
-   
-                          <option id="position">'.$x.'th </option>
-                       
-
-                          <br>';
-                          $x++;
-                      }
-                      ?>
-                                    </select>-->
-
-                                </div>
 
                             </div>
                         </div>
@@ -334,8 +216,9 @@ $rower = mysqli_fetch_array($res);
 
                         <button type="button" id="ressl" class="btn float-left btn-danger btn-outline-light">Upload
                             Subject Result</button>
-                        <button type="button" id="done" class="btn float-right btn-primary btn-outline-light">Next step
-                            >>></button>
+                        <a href="./frn"><button type="button"
+                                class="btn float-right btn-primary btn-outline-light">Select a
+                                new pupil/student</button></a>
 
                     </form>
                 </div>

@@ -309,11 +309,10 @@ if (!isset($_GET['id'])) {
                                 </div>
                                 <!-- /.form group -->
 
-                                <div class="form-group">
+                                <div class="form-group" hidden>
                                     <label>Fee Status.:</label>
-                                    <select name="feestat" id="feestat" value="<?php echo $row['fee'] ?>"
-                                        class="custom-select">
-                                        <option name="feestat" id="feestat"><?php echo $row['fee'] ?></option>
+                                    <select name="feestat" id="feestat" value="" class="custom-select">
+                                        <option name="feestat" id="feestat"></option>
                                         <option name="feestat" id="feestat">paid</option>
                                         <option name="feestat" id="feestat">unpaid</option>
 

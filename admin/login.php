@@ -66,7 +66,9 @@ include("functions/init.php");
         <div class="lockscreen-footer text-center">
             &copy; <b><a href="<?php echo $call['website'] ?>"
                     class="text-black"><?php echo $call['school'] ." ". date("Y") ?></a></b><br>
-            Developed by <a target="_blank" href="https://doteightplus.com" class="text-black"> DotEightPlus</a>
+            Developed by <a target="_blank"
+                href="https://www.google.com/search?q=hynitr&authuser=2&sxsrf=ALiCzsYoDkvWUPeY2QBVuUsrIgLZMU2_VA%3A1657883128019&source=hp&ei=90nRYsrQOoCDur4PiuOs2Ak&iflsig=AJiK0e8AAAAAYtFYCG-6Too6IRKAu6P7Mgd9N99tylNq&ved=0ahUKEwiKqK_33_r4AhWAgc4BHYoxC5sQ4dUDCAY&uact=5&oq=hynitr&gs_lcp=Cgdnd3Mtd2l6EAMyBAgjECcyBwgAELEDEAoyBwgAELEDEAoyBwgAELEDEAoyCggAELEDEIMBEAoyCggAELEDEIMBEAoyBwgAELEDEAoyBwgAELEDEAoyBAgAEAoyBwgAELEDEAo6CwgAEIAEELEDEIMBOggIABCABBCxAzoFCAAQsQM6BQgAEIAEOggILhCABBDUAjoICC4QgAQQsQM6BwgAEIAEEAo6CwguEIAEEMcBENEDUABYnQZgxQxoAHAAeAGAAfUDiAGeDJIBBzItNC41LTGYAQCgAQE&sclient=gws-wiz"
+                class="text-black"> Hynitr</a>
         </div>
     </div>
     <!-- /.center -->

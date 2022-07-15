@@ -61,9 +61,9 @@ $q = mysqli_fetch_array($w);
                                     <thead>
                                         <tr>
                                             <th>Admission No. </th>
+                                            <th>Passport </th>
                                             <th>First Name </th>
                                             <th>Last Name</th>
-                                            <th>Fee Status </th>
                                             <th>Dad No. </th>
                                             <th>Mum No. </th>
                                             <th>Gender </th>
@@ -72,21 +72,25 @@ $q = mysqli_fetch_array($w);
                                     </thead>
                                     <tbody>
                                         <?php
- $sql="SELECT * FROM students WHERE class= '$data'";
+ $sql="SELECT * FROM students WHERE class= '$data' ORDER BY `SurName` asc";
  $result_set=query($sql);
   while($row= mysqli_fetch_array($result_set))
  {
   ?>
                                         <tr>
                                             <td><?php echo $row['AdminID'] ?></td>
+                                            <td> <?php echo '
+                  <img style="width:70px; height: 70px" class="profile-user-img img-fluid"
+                       src="upload/studentDP/'.$row['Passport'].'"
+                       alt="User profile picture">';
+                       ?></td>
                                             <td><?php echo $row['SurName'] ?></td>
                                             <td><?php echo $row['Middle Name'] ?></td>
-                                            <td><?php echo $row['fee'] ?></td>
                                             <td><?php echo $row['Telephone1'] ?></td>
                                             <td><?php echo $row['Telephone2'] ?></td>
                                             <td><?php echo $row['Gender'] ?></td>
                                             <?php echo '
-                                                    <td ><a href="./more?id='.$row['AdminID'].'">View Full Profile</a></td>';
+                                                    <td ><a target="_blank" href="./more?id='.$row['AdminID'].'">View Full Profile</a></td>';
                                                     ?>
 
                                         </tr>
