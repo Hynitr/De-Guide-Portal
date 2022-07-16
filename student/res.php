@@ -26,7 +26,7 @@ if(row_count($result_set3) == 0){
 
 } else {
 
-if($row3['tess'] != null || $row3['tess'] != '') {
+if($row3['tess'] == null || $row3['tess'] == '') {
 
     echo "Your result has not yet been approved by the school admin <br/><a href='#' onclick='goBack()';>Click here to go back</a>";
     

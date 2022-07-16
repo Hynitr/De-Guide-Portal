@@ -913,4 +913,139 @@ function birthday_alert() {
 		}
 			
 		}
+
+//submit result
+if(isset($_POST['attd']) && isset($_POST['punc']) && isset($_POST['hons']) && isset($_POST['neat']) && isset($_POST['nonaggr']) && isset($_POST['ldsk']) && isset($_POST['prin']) && isset($_POST['classr']) && isset($_POST['cls']) && isset($_POST['ncls']) && isset($_POST['term']) && isset($_POST['mrkps'])  && isset($_POST['mrkbt']) && isset($_POST['perci']) && isset($_POST['tog']) && isset($_POST['ses']) && isset($_POST['resm']) || isset($_POST['conf']) && isset($_POST['tess'])) {
+
+	$attd 		= clean($_POST['attd']);
+	$punc 		= clean($_POST['punc']);
+	$hons 		= clean($_POST['hons']);
+	$neat 		= clean($_POST['neat']);
+	$nonaggr	= clean($_POST['nonaggr']);
+	$ldsk 		= clean($_POST['ldsk']);
+	$prin 		= clean($_POST['prin']);
+	$classr		= clean($_POST['classr']);
+	$cls 		= clean($_POST['cls']);
+	$term 		= clean($_POST['term']);
+	$mokps 		= clean($_POST['mrkps']);
+	$mokbt		= clean($_POST['mrkbt']);
+	$porci 		= clean($_POST['perci']);
+	$tog 		= clean($_POST['tog']);
+	$ses  		= clean($_POST['ses']);
+	$resm       = clean($_POST['resm']);
+	$tess       = clean($_POST['tess']);
+
+	
+	if (isset($_POST['nlcs'])) {
+		
+	$ncls 		= clean($_POST['ncls']);
+	mover($classr, $ncls);
+	
+	}
+
+
+	$total      = ($mokbt/$mokps) * 100;
+	
+	if ($total <= 39) {
+		
+		$grade  = "F9";
+		$remark = "Fail";
+	} else {
+
+	if ($total <= 44) {
+		
+	$grade  = "E8";
+	$remark = "Pass";
+	} else {
+
+	if ($total <= 49) {
+
+	$grade  = "D7";
+	$remark = "Pass";
+	} else {
+
+	if ($total <= 54) {
+	
+	$grade  = "C6";
+	$remark = "Credit";
+	} else {
+
+	if ($total <= 59) {
+	
+	$grade  = "C5";
+	$remark = "Credit";
+	} else {
+
+	if ($total <= 64) {
+
+	$grade  = "B3";
+	$remark = "Good";
+	} else {
+
+	if ($total <= 69) {
+	
+	$grade  = "B2";
+	$remark = "Very Good";	
+	} else {
+
+	if ($total <= 89) {
+	
+	$grade  = "A1";
+	$remark = "Excellent";
+	} else {
+
+	if ($total <= 100) {
+
+	$grade  = "A*";
+	$remark = "Distinction";
+	}
+	}
+	}
+	}
+	}
+	}
+	}
+	}
+	}
+
+
+	//update pyscho
+	if(isset($_POST['conf']) && isset($_POST['conf']) == "holla") {
+
+		$sql2 = "UPDATE motor SET `attendance`  = '$attd', `punctuality` = '$punc', `honesty` = '$hons', `neatness` = '$neat', `nonaggr` = '$nonaggr', `leader` = '$ldsk', `principal` = '$prin', `mrkpos` = '$mokps', `mrkobt` = '$mokbt', `perc` = '$porci', `totgra` = '$tog', `resm`  = '$resm', `tess` = '$tess' WHERE `class` = '$cls' AND `admno` = '$classr' AND `term` = '$term' AND `ses` = '$ses'";
+		$result = query($sql2);
+
+		$_SESSION['doneresll'] = "Result submitted successfully";
+
+		echo 'Loading.. Please wait';	
+		echo '<script>window.location.href = "./moreres?id='.$classr.'&cls='.$cls.'&term='.$term.'&ses='.$ses.'"</script>';
+		
+	} else {
+
+
+	$sql = "SELECT * FROM motor WHERE `admno` = '$classr' AND `class` = '$cls' AND `term` = '$term' AND `ses` = '$ses'";
+	$res = query($sql);
+	if(row_count($res) == 1) {
+		echo "This person already has a result details registered already!";
+
+	} else {
+
+	$sql2 = "INSERT INTO motor(`class`, `admno`, `term`, `attendance`, `punctuality`, `honesty`, `neatness`, `nonaggr`, `leader`, `principal`, `mrkpos`, `mrkobt`, `perc`, `totgra`, `ses`, `resm`)";
+	$sql2.= " VALUES('$cls', '$classr', '$term', '$attd', '$punc', '$hons', '$neat', '$nonaggr', '$ldsk', '$prin', '$mokps', '$mokbt', '$porci', '$tog', '$ses', '$resm')";
+	$result = query($sql2);
+
+	$_SESSION['doneresll'] = "Result submitted successfully";
+
+	echo 'Loading.. Please wait';	
+	echo '<script>window.location.href = "./resultnext?id='.$classr.'&cls='.$cls.'&term='.$term.'&ses='.$ses.'"</script>';
+	}
+		}
+}
+
+
+function mover($classr, $ncls)  {
+		
+			$ssl2 = "UPDATE students SET `Class` = '$ncls' WHERE `AdminID` = '$classr'";
+			$ress2 = query($ssl2);	
+}
 ?>
