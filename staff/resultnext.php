@@ -279,25 +279,25 @@ $pos  = mysqli_fetch_array($ress);
   }
 }
 ?>
-                                        <div class="form-group col-md-3" hidden>
+                                        <div class="form-group col-md-3">
                                             <label for="exampleInputEmail1">Mark Possible.:</label>
                                             <input type="number" name="year" id="mrkps" value="<?php echo $mrkpos ?>"
                                                 class="form-control" disabled>
                                         </div>
 
-                                        <div class="form-group col-md-3" hidden>
+                                        <div class="form-group col-md-3">
                                             <label for="exampleInputEmail1">Mark Obtained.:</label>
                                             <input type="number" name="year" id="mrkbt" value="<?php echo $mrkobt ?>"
                                                 class="form-control" disabled>
                                         </div>
 
-                                        <div class="form-group col-md-3" hidden>
+                                        <div class="form-group col-md-3">
                                             <label for="exampleInputEmail1">Percentage.:</label>
                                             <input type="text" name="year" id="perci"
                                                 value="<?php echo(round($perc,1)); ?>%" class="form-control" disabled>
                                         </div>
 
-                                        <div class="form-group col-md-3" hidden>
+                                        <div class="form-group col-md-3">
                                             <label for="exampleInputEmail1">Total Grade.:</label>
                                             <input type="text" name="year" id="tog" value="<?php echo $grade ?>"
                                                 class="form-control" disabled>

@@ -626,7 +626,6 @@ if(isset($_POST['attd']) && isset($_POST['punc']) && isset($_POST['hons']) && is
 	$prin 		= clean($_POST['prin']);
 	$classr		= clean($_POST['classr']);
 	$cls 		= clean($_POST['cls']);
-	$ncls 		= clean($_POST['ncls']);
 	$term 		= clean($_POST['term']);
 	$mokps 		= clean($_POST['mrkps']);
 	$mokbt		= clean($_POST['mrkbt']);
@@ -637,12 +636,14 @@ if(isset($_POST['attd']) && isset($_POST['punc']) && isset($_POST['hons']) && is
 
 	
 	if (isset($_POST['nlcs'])) {
-
-		mover($classr, $ncls);
+		
+	$ncls 		= clean($_POST['ncls']);
+	mover($classr, $ncls);
+	
 	}
 
 
-	$total      = $test + $ass + $exc + $exam;
+	$total      = ($mokbt/$mokps) * 100;
 	
 	if ($total <= 39) {
 		
@@ -710,7 +711,7 @@ if(isset($_POST['attd']) && isset($_POST['punc']) && isset($_POST['hons']) && is
 	//update pyscho
 	if(isset($_POST['conf']) && isset($_POST['conf']) == "holla") {
 
-		$sql2 = "UPDATE motor SET `attendance`  = '$attd', `punctuality` = '$punc', `honesty` = '$hons', `neatness` = '$neat', `nonaggr` = '$nonaggr', `leader` = '$ldsk', `principal` = '$prin', `mrkpos` = '$mrkps', `mrkobt` = '$mrkbt', `perc` = '$perci', `totgra` = '$tog', `resm`  = '$resm' WHERE `class` = '$cls' AND `admno` = '$classr' AND `term` = '$term' AND `ses` = '$ses'";
+		$sql2 = "UPDATE motor SET `attendance`  = '$attd', `punctuality` = '$punc', `honesty` = '$hons', `neatness` = '$neat', `nonaggr` = '$nonaggr', `leader` = '$ldsk', `principal` = '$prin', `mrkpos` = '$mokps', `mrkobt` = '$mokbt', `perc` = '$porci', `totgra` = '$tog', `resm`  = '$resm' WHERE `class` = '$cls' AND `admno` = '$classr' AND `term` = '$term' AND `ses` = '$ses'";
 		$result = query($sql2);
 
 		$_SESSION['doneresll'] = "Result submitted successfully";
@@ -729,7 +730,7 @@ if(isset($_POST['attd']) && isset($_POST['punc']) && isset($_POST['hons']) && is
 	} else {
 
 	$sql2 = "INSERT INTO motor(`class`, `admno`, `term`, `attendance`, `punctuality`, `honesty`, `neatness`, `nonaggr`, `leader`, `principal`, `mrkpos`, `mrkobt`, `perc`, `totgra`, `ses`, `resm`)";
-	$sql2.= " VALUES('$cls', '$classr', '$term', '$attd', '$punc', '$hons', '$neat', '$nonaggr', '$ldsk', '$prin', '$mrkps', '$mrkbt', '$perci', '$tog', '$ses', '$resm')";
+	$sql2.= " VALUES('$cls', '$classr', '$term', '$attd', '$punc', '$hons', '$neat', '$nonaggr', '$ldsk', '$prin', '$mokps', '$mokbt', '$porci', '$tog', '$ses', '$resm')";
 	$result = query($sql2);
 
 	$_SESSION['doneresll'] = "Result submitted successfully";

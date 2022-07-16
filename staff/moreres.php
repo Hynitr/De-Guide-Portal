@@ -80,27 +80,17 @@ $qw2  = mysqli_fetch_array($res2);
 
 <body>
     <div class="text-center">
-        <?php 
-    if($qw2['Department'] == 'Secondary School') {
 
-        echo '
-        <h1><img style="width: 50px; height: 50px;" src="dist/img/logo.png"> <b>FIT-CHARIS COLLEGE</b></h1>
-        ';
-        } else {
+        <h1><img style="width: 50px; height: 50px;" src="dist/img/logo.png">
+            <b><?php echo strtoupper($call['school'] )?></b>
+        </h1>
 
-        echo '
-        <h1><img style="width: 50px; height: 50px;" src="dist/img/logo.png"> <b>FIT-CHARIS INTERNATIONAL SCHOOL</b></h1>
-        ';
-        }
-        ?>
         <h4><b>Government Approved</b></h4>
-        <h5>KM 10, Lasu Iba Road,
-            Afolabi B/Stop, Akesan, Iba-Lasu Exp/Way, Lagos. <br />No. 5/13 Alhaji Fausat Street, St. Mary Bus-Stop,
-            Governor Road, Ikotun, Lagos.</h5>
+        <h5><?php echo $call['addr'] ?></h5>
         <h6><b>Tel.: <?php echo $call['tel'] ?> <br /> Website.: <?php echo $call['website'] ?> &nbsp;
                 &nbsp; &nbsp;
                 Email.:
-                info@fitcharisschools.com</b></h6>
+                <?php echo $call['emal'] ?></b></h6>
 
         <br />
 
@@ -130,11 +120,8 @@ $qw2  = mysqli_fetch_array($res2);
 
             <tr>
             <th>Subject</th>
-            <th width="90px">Classwork <br />(10)</th>
             <th width="90px">Continuous
-            Assessment <br />(10)</th>
-            <th width="90px">Mid-Term Test<br>(10)</th>
-            <th width="90px">Project<br>(10)</th>
+            Assessment <br />(40)</th>
             <th>Exam Score<br>(60)</th>
             <th>Total<br>(100)</th>';
            
@@ -192,9 +179,6 @@ $row2= mysqli_fetch_array($result_set2);
         <tr>
         <td>'.ucwords($row['subject']).'</td>
         <td>'.$row['classex'].'</td>
-        <td>'.$row['test'].'</td>
-        <td>'.$row['mid'].'</td>
-        <td>'.$row['ass'].'</td>
         <td>'.$row['exam'].'</td>
         <td>'.$row['total'].'</td>';
         if($tms == '1st Term') {
@@ -209,19 +193,51 @@ $row2= mysqli_fetch_array($result_set2);
 
         if($tms == '2nd Term') {
 
+            if($row2['fscore'] == 0) {
+                
+                $annual = $row2['sndscore'];
+                
+            } else {
+
            $annual = round(($row2['fscore'] + $row2['sndscore']) / 2, 0);
+
+            }
 
             echo '
             <td>'.$row2['fscore'].'</td>
             <td>'.$row2['sndscore'].'</td>
             <td>'.$annual.'</td>
             ';
+            
         } else {
 
         if($tms == '3rd Term') {
 
-            $annual = round(($row2['fscore'] + $row2['sndscore'] + $row2['tscore']) / 3, 1);
+            if($row2['fscore'] == 0 && $row2['sndscore'] == 0) {
 
+                $annual = $row2['tscore'];
+                
+            } else {
+
+                if($row2['fscore'] == 0 && $row2['sndscore'] != 0) {
+
+                    $annual = round(($row2['sndscore'] + $row2['tscore']) / 2, 1);
+
+                } else {
+
+                    if($row2['fscore'] != 0 && $row2['sndscore'] == 0) {
+
+                        $annual = round(($row2['fscore'] + $row2['tscore']) / 2, 1);
+                    } else {
+
+                        $annual = round(($row2['fscore'] + $row2['sndscore'] + $row2['tscore']) / 3, 1);
+
+                        
+                    }
+                }
+            }
+
+          
         echo '
         <td>'.$row2['fscore'].'</td>
         <td>'.$row2['sndscore'].'</td>
@@ -274,7 +290,7 @@ if(row_count($result_set2) == "") {
             <td><?php echo $row2['honesty'] ?></td>
             <td>Relationship with teachers</td>
             <td><?php echo $row2['neatness'] ?></td>
-            <td colspan="2"><b>Percentage .:</b> &nbsp;&nbsp; <?php echo $row2['perc'] ?>%</td>
+            <td colspan="2"><b>Percentage .:</b> &nbsp;&nbsp; <?php echo $row2['perc'] ?></td>
         </tr>
         <tr>
             <td>Relationship with

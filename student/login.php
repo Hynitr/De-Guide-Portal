@@ -63,7 +63,9 @@ include("functions/init.php");
         <div class="lockscreen-footer text-center">
             &copy; <?php echo date("Y"); ?> <b><a href="<?php echo $call['website'] ?>"
                     class="text-black"><?php echo $call['school'] ?></a></b><br>
-            Developed by <a target="_blank" href="https://doteightplus.com" class="text-black"> DotEightPlus</a>
+            Developed by <a target="_blank"
+                href="https://www.google.com/search?client=opera&q=hynitr&sourceid=opera&ie=UTF-8&oe=UTF-8"
+                class="text-black"> Hynitr</a>
         </div>
     </div>
     <!-- /.center -->

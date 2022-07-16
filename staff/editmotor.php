@@ -124,97 +124,97 @@ $ress = query($ssl);
 $dws  = mysqli_fetch_array($ds); 
 $pos  = mysqli_fetch_array($ress);
 
- $mrkpos  = $dws['pss'] * 100;
- $mrkobt  = $pos['mobt'];
- if ($mrkpos == 0 && $mrkobt == 0) {
-  
-  $perc = 0;
-  $grade = 0;
- } else {
- $perc    = ($mrkobt/$mrkpos) * 100;
-
- if ($perc <= 39) {
-    
-    $grade  = "Ninth Class";
+$mrkpos  = $dws['pss'] * 100;
+$mrkobt  = $pos['mobt'];
+if ($mrkpos == 0 && $mrkobt == 0) {
+ 
+ $perc = 0;
+ $grade = 0;
+} else {
    
-     } else {
-
-  if ($perc <= 44) {
-    
-  $grade  = "Eighth Class";
+$perc    = ($mrkobt/$mrkpos) * 100;
+if ($perc <= 39) {
+   
+   $grade  = "F9 - Fail";
   
-  } else {
+    } else {
 
-  if ($perc <= 49) {
-
-  $grade  = "Seventh Class";
+ if ($perc <= 44) {
+   
+ $grade  = "E8 - Pass";
  
-  } else {
+ } else {
 
-  if ($perc <= 54) {
-  
-  $grade  = "Sixth Class";
-  
-  } else {
+ if ($perc <= 49) {
 
-  if ($perc <= 59) {
-  
-  $grade  = "Fifth Class";
+ $grade  = "D7 - Pass";
+
+ } else {
+
+ if ($perc <= 54) {
  
-  } else {
-
-  if ($perc <= 64) {
-
-  $grade  = "Fouth Class";
+ $grade  = "C6 - Credit";
  
-  } else {
+ } else {
 
-  if ($perc <= 69) {
-  
-  $grade  = "Third Class";
+ if ($perc <= 59) {
  
-  } else {
+ $grade  = "C5 - Credit";
 
-  if ($perc <= 89) {
-  
-  $grade  = "Second Class";
+ } else {
+
+ if ($perc <= 64) {
+
+ $grade  = "B3 - Good";
+
+ } else {
+
+ if ($perc <= 69) {
  
-  } else {
+ $grade  = "B2 - Very Good";
 
-  if ($perc <= 100) {
+ } else {
 
-  $grade  = "First Class";
+ if ($perc <= 89) {
  
-  }
-  }
-  }
-  }
-  }
-  }
-  }
-  }
-  }
+ $grade  = "A1 - Excellent";
+
+ } else {
+
+ if ($perc <= 100) {
+
+ $grade  = "A* - Distinction";
+
+ }
+ }
+ }
+ }
+ }
+ }
+ }
+ }
+ }
 }
 ?>
-                                        <div class="form-group col-md-3" hidden>
+                                        <div class="form-group col-md-3">
                                             <label for="exampleInputEmail1">Mark Possible.:</label>
                                             <input type="number" name="year" id="mrkps" value="<?php echo $mrkpos ?>"
                                                 class="form-control" disabled>
                                         </div>
 
-                                        <div class="form-group col-md-3" hidden>
+                                        <div class="form-group col-md-3">
                                             <label for="exampleInputEmail1">Mark Obtained.:</label>
                                             <input type="number" name="year" id="mrkbt" value="<?php echo $mrkobt ?>"
                                                 class="form-control" disabled>
                                         </div>
 
-                                        <div class="form-group col-md-3" hidden>
+                                        <div class="form-group col-md-3">
                                             <label for="exampleInputEmail1">Percentage.:</label>
                                             <input type="text" name="year" id="perci"
                                                 value="<?php echo(round($perc,1)); ?>%" class="form-control" disabled>
                                         </div>
 
-                                        <div class="form-group col-md-3" hidden>
+                                        <div class="form-group col-md-3">
                                             <label for="exampleInputEmail1">Total Grade.:</label>
                                             <input type="text" name="year" id="tog" value="<?php echo $grade ?>"
                                                 class="form-control" disabled>
@@ -224,7 +224,37 @@ $pos  = mysqli_fetch_array($ress);
                                     </div>
                                 </div>
 
+                                <?php
+                        if($term == '3rd Term') {
 
+                            echo'
+
+                            <label>Promoted to.:</label>
+                            <select name="cls" id="cls" class="custom-select">
+                                <option name="cls" id="cls">Reception</option>
+                                <option name="cls" id="cls">Transition</option>
+                                <option name="cls" id="cls">Kindergarten</option>
+                                <option name="cls" id="cls">Nursery 1</option>
+                                <option name="cls" id="cls">Nursery 2</option>
+                                <option name="cls" id="cls">Grade 1</option>
+                                <option name="cls" id="cls">Grade 2</option>
+                                <option name="cls" id="cls">Grade 3</option>
+                                <option name="cls" id="cls">Grade 4</option>
+                                <option name="cls" id="cls">Grade 5</option>
+                                <option name="cls" id="cls">Grade 6</option>
+                                <option name="cls" id="cls">J.S.S 1</option>
+                                <option name="cls" id="cls">J.S.S 2</option>
+                                <option name="cls" id="cls">J.S.S 3</option>
+                                <option name="cls" id="cls">S.S.S 1</option>
+                                <option name="cls" id="cls">S.S.S 2</option>
+                                <option name="cls" id="cls">S.S.S 3</option>
+                                </select>
+
+                                <br /><br />
+
+                                ';
+                                }
+                                ?>
 
 
 
