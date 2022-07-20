@@ -462,7 +462,8 @@ if ($perc <= 39) {
 
                         <div class="form-group col-md-12">
                             <label for="exampleInputEmail1">Principal Comment</label>
-                            <input type="text" name="text" id="tess" placeholder="" class="form-control">
+                            <input type="text" name="text" id="tess" value="<?php echo $row['tess'] ?>"
+                                class="form-control">
                         </div>
 
                         <div class="form-group">
@@ -477,8 +478,8 @@ if ($perc <= 39) {
 
                         <p class="text-danger">Recheck all details typed in before submitting</p>
 
-                        <button type="button" id="eddsubdone" class="btn float-right btn-primary btn-outline-light">Edit
-                            Result</button>
+                        <button type="button" id="eddsubdone" class="btn float-right btn-primary btn-outline-light">Save
+                            Changes</button>
 
                     </form>
                 </div>

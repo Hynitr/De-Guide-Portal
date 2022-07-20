@@ -87,7 +87,7 @@ while ($rw = mysqli_fetch_array($ww)) {
                                             
                                             echo '
                                                     <td ><a href="./moreres?id='.$rw['admno'].'&cls='.$data.'&term='.$tms.'&ses='.$ses.'">View Full Result</a></td>
-                                                    <td ><a href="./edit?id='.$rw['admno'].'&cls='.$data.'&term='.$tms.'&ses='.$ses.'">View Full Result</a></td>';
+                                                    <td ><a href="./edit?id='.$rw['admno'].'&cls='.$data.'&term='.$tms.'&ses='.$ses.'">Edit Result</a></td>';
                                             
                                                     }
                                                     ?>
