@@ -615,8 +615,11 @@ if (isset($_POST['admr']) && isset($_POST['trmr']) && isset($_POST['ccsr']) && i
 
 
 //submit result
-if(isset($_POST['attd']) && isset($_POST['punc']) && isset($_POST['hons']) && isset($_POST['neat']) && isset($_POST['nonaggr']) && isset($_POST['ldsk']) && isset($_POST['prin']) && isset($_POST['classr']) && isset($_POST['cls']) && isset($_POST['ncls']) && isset($_POST['term']) && isset($_POST['mrkps'])  && isset($_POST['mrkbt']) && isset($_POST['perci']) && isset($_POST['tog']) && isset($_POST['ses']) && isset($_POST['resm']) || isset($_POST['conf'])) {
+if (isset($_POST['attd']) && isset($_POST['punc']) && isset($_POST['hons']) && isset($_POST['neat']) && isset($_POST['nonaggr']) && isset($_POST['ldsk']) && isset($_POST['prin']) && isset($_POST['classr']) && isset($_POST['cls']) || isset($_POST['ncls']) && isset($_POST['term']) && isset($_POST['mrkps']) &&
+isset($_POST['mrkbt']) && isset($_POST['perci']) && isset($_POST['tog']) && isset($_POST['ses']) &&
+isset($_POST['resm']) || isset($_POST['conf'])) {
 
+	
 	$attd 		= clean($_POST['attd']);
 	$punc 		= clean($_POST['punc']);
 	$hons 		= clean($_POST['hons']);
@@ -739,6 +742,7 @@ if(isset($_POST['attd']) && isset($_POST['punc']) && isset($_POST['hons']) && is
 	echo '<script>window.location.href = "./resultnext?id='.$classr.'&cls='.$cls.'&term='.$term.'&ses='.$ses.'"</script>';
 	}
 		}
+
 }
 
 
