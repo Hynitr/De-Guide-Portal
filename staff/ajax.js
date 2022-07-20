@@ -298,7 +298,7 @@ $(document).ready(function () {
                           if (ldsk > 5) {
                             $(toastr.error("General attitude and habit field value can`t be greater than 5"));
                           } else {
-                              $(toastr.error("ha..."));
+                              $(toastr.error("Loading... Please wait"));
 
                               $.ajax({
                                 type: "post",
