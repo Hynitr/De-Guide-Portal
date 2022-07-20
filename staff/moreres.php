@@ -149,6 +149,7 @@ $qw2  = mysqli_fetch_array($res2);
             ';
             }
             }
+        }
             echo '
             <th>Cumulative <br /> Average Score</th>
             <th>Grade</th>
@@ -314,7 +315,6 @@ if(row_count($result_set2) == "") {
 
 </html>
 <?php
-}
 }
 }
 ?>

@@ -155,6 +155,7 @@ $qw2  = mysqli_fetch_array($res2);
             ';
             }
             }
+            }
             echo '
             <th>Cumulative <br /> Average Score</th>
             <th>Grade</th>
@@ -323,7 +324,6 @@ window.print();
 
 </html>
 <?php
-}
 }
 }
 }
