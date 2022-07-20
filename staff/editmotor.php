@@ -231,6 +231,7 @@ if ($perc <= 39) {
 
                             <label>Promoted to.:</label>
                             <select name="cls" id="cls" class="custom-select">
+                            <option name="cls" id="cls">'.$rower['Class'].'</option>
                                 <option name="cls" id="cls">Reception</option>
                                 <option name="cls" id="cls">Transition</option>
                                 <option name="cls" id="cls">Kindergarten</option>
