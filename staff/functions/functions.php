@@ -638,7 +638,7 @@ isset($_POST['resm']) || isset($_POST['conf'])) {
 	$resm       = clean($_POST['resm']);
 
 	
-	if (isset($_POST['nlcs'])) {
+	if (isset($_POST['ncls'])) {
 		
 	$ncls 		= clean($_POST['ncls']);
 	mover($classr, $ncls);
