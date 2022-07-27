@@ -936,7 +936,7 @@ if(isset($_POST['attd']) && isset($_POST['punc']) && isset($_POST['hons']) && is
 	$tess       = clean($_POST['tess']);
 
 	
-	if (isset($_POST['nlcs'])) {
+	if (isset($_POST['ncls'])) {
 		
 	$ncls 		= clean($_POST['ncls']);
 	mover($classr, $ncls);
